@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+/* :root -> cria variaveis globais dentro dele */
+:root{
+/* background */
+--background:           hsl(222, 26%, 31%);
+--background-dark:      hsl(223, 31%, 20%);
+--background-very-dark: hsl(224, 36%, 15%);
+
+/* keys */
+--key-color-top:        hsl(0, 0%  , 100%);
+--key-color-bottom:     hsl(222, 26%, 31%);
+--key-background:       hsl(30 , 25%, 89%);
+--key-background-dark:  hsl(32 , 16%, 84%);
+--key-shadow:           hsl(28 , 16%, 65%);
+
+/* blue-key */
+--key-blue-background:  hsl(225, 21%, 49%);
+--key-blue-shadow:      hsl(224, 28%, 35%);
+
+/* red-key */
+--key-red-background:   hsl(6  , 63%, 50%);
+--key-red-shadow:       hsl(6  , 70%, 34%);
+
+--transition: 1s;
+}
+
+.calc{
+    background: var(--background);
+    width: 100%;
+    height: 100vh;
+    transition: var(--transition);
+}
+
+.calc-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calc-top h3{
+    color: var(--key-color-top);
+    transition: var(--transition);
+}
+
+.calc-top h4{
+    color: var(--key-color-top);
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5px;
+    transition: var(--transition);
+}
+
+.calc-top span{
+    color: var(--key-color-top);
+    font-size: 13px;
+    transition: var(--transition);
+}
+
+.calc-top-result input{
+    background: var(--background-very-dark);
+    color: var(--key-color-top);
+    border: none;
+    margin-bottom: 20px;
+    text-align: right;
+    padding: 17px;
+    font-size: 32px;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.calc-keys{
+    background: var(--background-dark);
+    border-radius: 10px;
+    padding: 10px;
+    transition: var(--transition);
+}
+
+.calc-keys input{
+    background: var(--key-background);
+    color: var(--key-color-bottom);
+    border: 2px solid var(--key-background);
+    margin: 10px;
+    border-radius: 5px;
+    height: 35px;
+    transition: var(--transition);
+}
+
+#reset, #del{
+    background: var(--key-blue-background);
+    color: var(--key-color-top);
+    border: 2px solid var(--key-blue-background);
+    transition: var(--transition);
+}
+
+#equals{
+    background: var(--key-red-background);
+    color: var(--key-background);
+    border: 2px solid var(--key-red-background);
+    transition: var(--transition);
+}
+
+/* animação */
+
+.calc-keys input:hover{
+    border: 2px solid var(--background);
+    color: var(--key-color-top);
+    background: hsla(0, 0%, 100%, 0);
+    transition: 0.5s;
+}
+
+#reset:hover, #del:hover{
+    border: 2px solid var(--key-blue-background);
+    color: var(--key-blue-background);
+    background: hsla(0, 0%, 100%, 0);
+    transition: 0.5s;
+}
+
+#equals:hover{
+    border: 2px solid var(--key-red-background);
+    color: var(--key-red-background);
+    background: hsla(0, 0%, 100%, 0);
+    transition: 0.5s;
+}
+
+/* Active */
+.calc-keys input:active{
+    background: var(--key-background);
+    color: var(--background);
+}
+
+#reset:active, #del:active{
+    background: var(--key-blue-background);
+    color: var(--key-background);
+}
+
+#equals:active{
+    background: var(--key-red-background);
+    color: var(--key-background);
+}
+
+/* configurações input range  */
+
+/* Desligar suas propriedades para que um css customizado possa funcionar*/
+
+input[type = range]{
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type = range]:focus{
+    outline: none;
+}
+
+/* Chrome */
+input[type = range]::-webkit-slider-thumb, input[type = range]::-moz-range-thumb{
+    -webkit-appearance: none;
+    border: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 20px;
+    background: var(--key-red-background);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* Microsoft */
+input[type = range]::-ms-track{
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Estilo input range */
+.toggle{
+    background: var(--background-dark);
+    border-radius: 25px;
+    height: 25px;
+    padding: 0 6px;
+    transition: var(--transition);
+}
+
+.toggle input{
+    width: 100%;
+}
